@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.tutorialsbuzz.phrasebook.RecoveryActivity">
+
+    <EditText
+        android:id="@+id/editTextLER"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView8"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        android:digits="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMաբգդեզէըթժիլխծկհձղճմյնշոչպջռսվտրցւփքևօֆԱԲԳԴԵԶԷԸԹԺԻԼԽԾԿՀՁՂՃՄՅՆՇՈՉՊՋՌՍՎՏՐՑՒՓՔՕՖ-_1234567890.@"
+        android:ems="16"
+        android:hint="մուտքանուն կամ էլ. փոստ..." />
+
+    <Button
+        android:id="@+id/buttonRR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextLER"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp"
+        android:text="Վերականգնել"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="5dp"
+        android:text="    Գաղտնաբառը վերականգնելու համար գրեք Ձեր մուտքանունը կամ էլ. փոստը, ինչպես նաև ծննդյան ամսաթիվը: Ծննդյան օրը և ամիսը անհրաժեշտ է գրել 2-նիշ ֆորմատով (մեկ նիշի դեպքում դիմացը 0 ավելացնել): Ավելի պարզ ասեմ՝ XX XX XXXX ֆորմատով:"
+        android:textColor="@color/mycolor" />
+
+    <EditText
+        android:id="@+id/editTextDR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editTextLER"
+        android:layout_alignStart="@+id/editTextLER"
+        android:layout_below="@+id/editTextLER"
+        android:layout_margin="8dp"
+        android:digits="qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMաբգդեզէըթժիլխծկհձղճմյնշոչպջռսվտրցւփքևօֆԱԲԳԴԵԶԷԸԹԺԻԼԽԾԿՀՁՂՃՄՅՆՇՈՉՊՋՌՍՎՏՐՑՒՓՔՕՖ-_1234567890.@"
+        android:ems="4"
+        android:hint="օր..."
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextMR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editTextDR"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_toEndOf="@+id/editTextDR"
+        android:layout_toRightOf="@+id/editTextDR"
+        android:ems="4"
+        android:hint="ամիս..."
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/editTextYR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/editTextMR"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_toEndOf="@+id/editTextMR"
+        android:layout_toRightOf="@+id/editTextMR"
+        android:ems="6"
+        android:hint="տարի..."
+        android:inputType="numberDecimal" />
+</RelativeLayout>

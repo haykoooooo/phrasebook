@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tutorialsbuzz.phrasebook.PhrasesActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewAuthorPhrases"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/textViewContentPhrases"
+                android:layout_marginBottom="1mm"
+                android:layout_marginLeft="1mm"
+                android:layout_marginRight="1mm"
+                android:text=""
+                android:textColor="@color/mycolor"
+                android:textSize="1.8mm"
+                android:textStyle="bold|italic" />
+
+            <ImageView
+                android:id="@+id/imageViewPhrases"
+                android:layout_width="30mm"
+                android:layout_height="30mm"
+                android:layout_below="@+id/textViewDatePhrases"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="0.8mm"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/textViewContentPhrases"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewPhrases"
+                android:layout_marginLeft="1.8mm"
+                android:layout_marginRight="1.8mm"
+                android:layout_marginTop="0.7mm"
+                android:text=""
+                android:textColor="@color/acolor"
+                android:textSize="2mm" />
+
+            <TextView
+                android:id="@+id/textViewDatePhrases"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="1mm"
+                android:layout_marginTop="1mm"
+                android:text=""
+                android:textSize="1.8mm" />
+
+            <TextView
+                android:id="@+id/textViewViewsPhrases"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textViewAuthorPhrases"
+                android:layout_margin="1mm"
+                android:text=""
+                android:textSize="1.8mm"
+                android:textStyle="italic|bold" />
+
+            <TextView
+                android:id="@+id/textViewRatingP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textViewAuthorPhrases"
+                android:layout_margin="1mm"
+                android:text=""
+                android:textSize="1.8mm"
+                android:textStyle="italic|bold" />
+
+            <TextView
+                android:id="@+id/textViewRatingPhrases"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/spinnerRatingPhrases"
+                android:layout_margin="1mm"
+                android:layout_toLeftOf="@+id/spinnerRatingPhrases"
+                android:text=""
+                android:textSize="1.8mm"
+                android:textStyle="italic|bold" />
+
+            <Spinner
+                android:id="@+id/spinnerRatingPhrases"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textViewRatingP"
+                android:layout_margin="1mm" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

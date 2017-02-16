@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Phrasebook</string>
+    <string name="action_settings">Settings</string>
+    <string name="login">
+        <u>մուտք</u>
+    </string>
+    <string name="signup">
+        <u>գրանցում</u>
+    </string>
+    <string name="forgot">
+        <u>մոռացել եմ գաղտնաբառը</u>
+    </string>
+    <string name="account">
+        <u>իմ հաշիվը</u>
+    </string>
+    <string name="logout">
+        <u>ելք</u>
+    </string>
+</resources>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tutorialsbuzz.phrasebook">
+
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/myStyle">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".SignupActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".UserActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".AccountActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".RecoveryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NewsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SearchNewsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".NewsArchiveActivity"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name=".NewsService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":newsservice" />
+
+        <activity
+            android:name=".HoroscopeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PhrasesActivity"
+            android:screenOrientation="portrait"></activity>
+    </application>
+
+</manifest>
