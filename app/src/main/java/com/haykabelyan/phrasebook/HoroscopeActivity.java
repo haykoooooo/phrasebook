@@ -1,4 +1,4 @@
-package com.tutorialsbuzz.phrasebook;
+package com.haykabelyan.phrasebook;
 
 import android.app.ProgressDialog;
 import android.content.Intent;

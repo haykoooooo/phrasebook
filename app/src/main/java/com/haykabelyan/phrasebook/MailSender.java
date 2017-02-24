@@ -1,4 +1,4 @@
-package com.tutorialsbuzz.phrasebook;
+package com.haykabelyan.phrasebook;
 
 import java.security.Security;
 import java.util.Properties;

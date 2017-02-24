@@ -1,4 +1,4 @@
-package com.tutorialsbuzz.phrasebook;
+package com.haykabelyan.phrasebook;
 
 import android.annotation.TargetApi;
 import android.app.ProgressDialog;

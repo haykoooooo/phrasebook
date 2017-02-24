@@ -1,4 +1,4 @@
-package com.tutorialsbuzz.phrasebook;
+package com.haykabelyan.phrasebook;
 
 import java.security.AccessController;
 import java.security.Provider;

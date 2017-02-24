@@ -1,4 +1,4 @@
-package com.tutorialsbuzz.androidphp;
+package com.haykabelyan.androidphp;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

@@ -1,4 +1,4 @@
-package com.tutorialsbuzz.phrasebook;
+package com.haykabelyan.phrasebook;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -8,13 +8,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class NewsList extends ArrayAdapter<String> {
+public class MyHoroscopeGrid extends ArrayAdapter<String> {
 
     private final Activity context;
     private final String[] news;
-    private final String[] images;
+    private final int[] images;
 
-    public NewsList(Activity context, String[] news, String[] images) {
+    public MyHoroscopeGrid(Activity context, String[] news, int[] images) {
         super(context, R.layout.news_list, news);
         this.context = context;
         this.news = news;
@@ -24,12 +24,12 @@ public class NewsList extends ArrayAdapter<String> {
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
-        View rowView = inflater.inflate(R.layout.news_list, null, true);
-        TextView txtTitle = (TextView) rowView.findViewById(R.id.txt);
+        View rowView = inflater.inflate(R.layout.mycellgrid, null, true);
+        TextView txtTitle = (TextView) rowView.findViewById(R.id.mytextpart);
 
-        ImageView imageView = (ImageView) rowView.findViewById(R.id.img);
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.myimagepart);
         txtTitle.setText(news[position]);
-        new ImageLoadTask(context, images[position], imageView).execute();
+        imageView.setImageDrawable(context.getResources().getDrawable(images[position]));
         return rowView;
     }
 }

@@ -1,4 +1,4 @@
-package com.tutorialsbuzz.phrasebook;
+package com.haykabelyan.phrasebook;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Map;

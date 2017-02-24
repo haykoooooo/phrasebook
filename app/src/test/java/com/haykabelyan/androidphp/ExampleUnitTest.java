@@ -1,4 +1,4 @@
-package com.tutorialsbuzz.androidphp;
+package com.haykabelyan.androidphp;
 
 import org.junit.Test;
 

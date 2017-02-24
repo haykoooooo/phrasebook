@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tutorialsbuzz.phrasebook.NewsActivity">
+    tools:context="com.haykabelyan.phrasebook.NewsActivity">
 
     <ScrollView
         android:layout_width="match_parent"
