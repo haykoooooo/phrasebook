@@ -1,9 +1,13 @@
 package com.tutorialsbuzz.phrasebook;
 
+import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -36,6 +40,7 @@ public class RecoveryActivity extends AppCompatActivity {
 
     String url = "http://" + StateHost.URL + "/read_allusers.php";
     String url2 = "http://" + StateHost.URL + "/recovery_request.php";
+    String url3 = "http://" + StateHost.URL + "/send_mail.php";
 
     public static final String USERNAME = "username";
     public static final String EMAIL = "email";
@@ -43,6 +48,7 @@ public class RecoveryActivity extends AppCompatActivity {
     public static final String FNAME = "fname";
     public static final String SURNAME = "surname";
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +59,7 @@ public class RecoveryActivity extends AppCompatActivity {
         editTextLER = (EditText) findViewById(R.id.editTextLER);
         button = (Button) findViewById(R.id.buttonRR);
         button.setBackground(getResources().getDrawable(R.drawable.longshape));
+        button.setTextColor(Color.WHITE);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -156,12 +163,13 @@ public class RecoveryActivity extends AppCompatActivity {
         if (Integer.parseInt(second) < 10)
             second = "0" + second;
         changeDate = year + "." + month + "." + day + ", " + hour + ":" + minute + ":" + second;
-        changePassword += "Password recovery requested on " + changeDate + ". Code " + password + "\n";
+        changePassword += "Password recovered on " + changeDate + ". New password " + password + "\n";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url2,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         sendEmail();
+                        changePassword += "Password recovered on " + changeDate + ". New password " + password + "\n";
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -174,34 +182,65 @@ public class RecoveryActivity extends AppCompatActivity {
         }) {
             @Override
             protected Map<String, String> getParams() {
-
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("username", username);
+                params.put("password", password);
                 params.put("changepassword", changePassword);
 
                 return params;
             }
         };
 
-        // Adding request to request queue
         MyApplication.getInstance().addToReqQueue(postRequest);
     }
 
-    private void sendEmail() {
-        PD.dismiss();
-        AlertDialog.Builder builder = new AlertDialog.Builder(RecoveryActivity.this);
-        builder.setTitle("Վերջ")
-                .setMessage("Խնդրում ենք ուղարկել phrasebook_mail@mail.ru հասցեին " + password + " կոդը, " +
-                        "և մենք պատասխան նամակով Ձեզ կուղարկենք Ձեր գաղտնաբառը:")
-                .setIcon(sendMail)
-                .setCancelable(false)
-                .setNegativeButton("Լավ, հոգաչափ շնորհակալ եմ...",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                            }
-                        });
-        AlertDialog alert = builder.create();
-        alert.show();
+    public void sendEmail() {
+        new MailSendTask().execute();
+    }
+
+    class MailSendTask extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            PD.dismiss();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            MailSender sender = new MailSender("myEmail", "myPassword");
+            try {
+                sender.sendMail("Նոր գաղտնաբառ", "Ողջույն, " + fname + " " + surname +
+                                "\nՁեր մուտքանունն է՝ " + username + "\nՁեր նոր գաղտնաբառն է՝ " + password +
+                                "\nԽնդրում ենք Ձեր իսկ ապահովության համար այն փոխել «Իմ հաշիվը» բաժնում, երբ մուտք գործեք: " +
+                                "\n  Շնորհակալություն:",
+                        "phrasebook_mail@mail.ru", email);
+            } catch (Exception e) {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        Toast.makeText(getApplicationContext(), "Սերվերի կամ կապի խնդիր:", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            AlertDialog.Builder builder = new AlertDialog.Builder(RecoveryActivity.this);
+            builder.setTitle("Վերջ")
+                    .setMessage(" Ձեր էլ. հասցեին ուղարկվել է Ձեր մուտքանունն ու նոր գաղտնաբառը:")
+                    .setIcon(sendMail)
+                    .setCancelable(false)
+                    .setNegativeButton("Լավ, հոգաչափ շնորհակալ եմ...",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                                }
+                            });
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
     }
 }

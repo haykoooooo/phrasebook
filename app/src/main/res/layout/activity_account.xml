@@ -277,7 +277,7 @@
                                 android:id="@+id/buttonSCA"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Պահպանել փոփոխությունները"
+                                android:text=" Պահպանել փոփոխությունները "
                                 android:textAllCaps="false"
                                 android:textSize="15dp" />
                         </LinearLayout>
@@ -408,7 +408,7 @@
                                 android:id="@+id/buttonACA"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Հաստատել"
+                                android:text=" Հաստատել "
                                 android:textAllCaps="false"
                                 android:textSize="15dp" />
                         </LinearLayout>

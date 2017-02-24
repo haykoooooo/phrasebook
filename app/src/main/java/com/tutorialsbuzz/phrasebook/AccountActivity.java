@@ -437,7 +437,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         if (Integer.parseInt(second) < 10)
             second = "0" + second;
         changeDate = year + "." + month + "." + day + ", " + hour + ":" + minute + ":" + second;
-        changePassword += "Password is changed on " + changeDate + "\n";
+        changePassword += "\nPassword is changed on " + changeDate + "\n";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url3,
                 new Response.Listener<String>() {
                     @Override
