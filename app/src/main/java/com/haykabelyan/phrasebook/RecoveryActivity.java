@@ -40,7 +40,6 @@ public class RecoveryActivity extends AppCompatActivity {
 
     String url = "http://" + StateHost.URL + "/read_allusers.php";
     String url2 = "http://" + StateHost.URL + "/recovery_request.php";
-    String url3 = "http://" + StateHost.URL + "/send_mail.php";
 
     public static final String USERNAME = "username";
     public static final String EMAIL = "email";
